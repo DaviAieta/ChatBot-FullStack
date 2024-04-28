@@ -3,7 +3,9 @@ import { Request, Response } from "express";
 export class ChatController {
   static async postChat(req: Request, res: Response) {
     try {
-      const message = req.body();
+      // const message = req.body();
+      const message = "ola";
+
       let response = "";
 
       if (message.includes("ola")) {
