@@ -1,5 +1,8 @@
 import express from "express";
+import configApp from "./config";
+
 const app = express();
+configApp(app);
 
 const PORT = 3000;
 app.listen(PORT, () => {
