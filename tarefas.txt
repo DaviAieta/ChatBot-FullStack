@@ -1,0 +1,3 @@
+- Desenvolver o front-end com o React
+- Mixar o front com o back
+- Funcionar 🫡
