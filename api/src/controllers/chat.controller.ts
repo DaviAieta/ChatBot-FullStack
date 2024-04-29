@@ -4,7 +4,7 @@ export class ChatController {
   static async postChat(req: Request, res: Response) {
     try {
       // const message = req.body();
-      const message = "ola";
+      const message = "";
 
       let response = "";
 
@@ -14,9 +14,9 @@ export class ChatController {
         response = "Nao entendi sua mensagem";
       }
 
-      return res.json({ message: response });
+      return res.status(200).json({ message: response });
     } catch (error) {
-      return res.status(400).send("Error: " + error);
+      return res.status(400).json({ message: error });
     }
   }
 }

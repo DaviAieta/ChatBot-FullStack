@@ -5,7 +5,7 @@ import chatRouter from "./routes/chat.router";
 const app = express();
 configApp(app);
 
-app.use("/chat", chatRouter);
+app.use("/", chatRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
