@@ -12,7 +12,7 @@ export class ChatController {
   static async postChat(req: Request, res: Response) {
     try {
       const message = req.body();
-
+      console.log(message);
       let response = "";
 
       if (message.includes("ola")) {
