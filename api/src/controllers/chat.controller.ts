@@ -11,7 +11,7 @@ export class ChatController {
 
   static async postChat(req: Request, res: Response) {
     try {
-      const message = req.body();
+      const message = req.body.message.toLowerCase();
       console.log(message);
       let response = "";
 

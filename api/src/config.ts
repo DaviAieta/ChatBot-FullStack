@@ -1,11 +1,13 @@
 import express from "express";
 import path from "path";
-import chatRouter from "./routes/chat.router";
+import bodyParser from "body-parser";
 import * as exphbs from "express-handlebars";
 
 const configApp = (app: any) => {
   app.use(express.json());
   app.use("/public", express.static(path.join(__dirname, "../src/public")));
+  app.use(bodyParser.json());
+  app.use(express.urlencoded({ extended: true }));
 
   const handlebars = exphbs.create({
     defaultLayout: "main",
