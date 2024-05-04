@@ -1,4 +1,4 @@
-{{! <form action="/chat" method="post">
+<form action="/chat" method="post">
   <div class="box-questions">
     <div class="header">
       <p>CHAT-BOT</p>
@@ -8,19 +8,14 @@
         type="text"
         class="message"
         id="message"
+        name="message"
         placeholder="Pergunte aqui..."
       />
       <button class="btn-submit" id="btn-submit">Enviar</button>
     </div>
   </div>
-</form> }}
-
-<form action="/chat" method="post">
-  <input
-    type="text"
-    id="message"
-    name="message"
-    placeholder="Pergunte aqui.."
-  />
-  <button type="submit" class="btn-submit" id="btn-submit"></button>
 </form>
+
+<div id="chat-responses"></div>
+
+<script src="../public/js/fieldMessage.js"></script>

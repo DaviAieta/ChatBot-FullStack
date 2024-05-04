@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Genai } from "../helper/gemini";
 
 export class ChatController {
   static async getChat(req: Request, res: Response) {
@@ -12,18 +13,12 @@ export class ChatController {
   static async postChat(req: Request, res: Response) {
     try {
       const message = req.body.message.toLowerCase();
-      console.log(message);
-      let response = "";
+      let response = await Genai.run(message);
+      console.log(response);
 
-      if (message.includes("ola")) {
-        response = "Ola, como posso ajudar?";
-      } else {
-        response = "Nao entendi sua mensagem";
-      }
-
-      return res.status(200).json({ message: response });
+      return res.status(200).json({ reponse: response });
     } catch (error) {
-      return res.status(400).json({ message: error });
+      return res.status(400).json({ response: error });
     }
   }
 }
