@@ -19,12 +19,17 @@ export class ChatController {
       if (message.trim() !== "") {
         response = await Genai.run(message, language);
       } else {
-        response = "I didn`t understand your message.";
+        response = "Try type anything.";
       }
-
-      return res.status(200).json({ reponse: response });
+      return res.status(200).json({
+        sucess: true,
+        data: response,
+      });
     } catch (error) {
-      return res.status(400).json({ response: error });
+      return res.status(400).json({
+        sucess: false,
+        error: error,
+      });
     }
   }
 }
