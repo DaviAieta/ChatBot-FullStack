@@ -2,14 +2,6 @@ import { Request, Response } from "express";
 import { Genai } from "../helper/gemini";
 
 export class ChatController {
-  static async getChat(req: Request, res: Response) {
-    try {
-      return res.render("chat");
-    } catch (error) {
-      return res.status(400).json({ message: error });
-    }
-  }
-
   static async postChat(req: Request, res: Response) {
     try {
       const message = req.body.message.toLowerCase();
@@ -20,6 +12,10 @@ export class ChatController {
         response = await Genai.run(message, language);
       } else {
         response = "Try type anything.";
+        return res.status(400).json({
+          sucess: false,
+          data: response,
+        });
       }
       return res.status(200).json({
         sucess: true,
