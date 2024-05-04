@@ -13,8 +13,14 @@ export class ChatController {
   static async postChat(req: Request, res: Response) {
     try {
       const message = req.body.message.toLowerCase();
-      let response = await Genai.run(message);
-      console.log(response);
+      const language = req.body.language.toLowerCase();
+      let response = "";
+
+      if (message.trim() !== "") {
+        response = await Genai.run(message, language);
+      } else {
+        response = "I didn`t understand your message.";
+      }
 
       return res.status(200).json({ reponse: response });
     } catch (error) {
